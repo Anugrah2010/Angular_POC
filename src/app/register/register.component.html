@@ -1,0 +1,37 @@
+<div>
+    <p class="h1 text-primary mb-9 clearfix float-sm-none text-center">Registration form</p>
+    <form [formGroup]="entryForm" (ngSubmit)="onSubmit()" class="form-group">
+        <label class="form-label" for="company">Company Name</label>
+        <input type="text" class="form-control mb-2"   formControlName="company"/>
+        <label class="form-label" for="country">Country</label>
+        <input type="text" class="form-control mb-2"  formControlName="country"/>
+        <label class="form-label" for="industry">Industry</label>
+        <select class="form-control mb-2 dropdown" id="industry"  formControlName="industry">
+            <option>Mining</option>
+            <option>Electronics</option>
+            <option>Energy</option>
+            <option>Entertainment</option>
+            <option>Information Technology</option>
+
+        </select>        
+        <label class="form-label" for="email" >Email address</label>
+        <input type="text" class="form-control mb-2"  formControlName="email" #emailInput/>
+        <label class="form-label" for="contact">Contact number</label>
+        <input type="text" class="form-control mb-2"   formControlName="contact" #contactInput/>
+        <button class="btn btn-outline-success" type="submit">Submit</button>
+        <button class="btn btn-outline-dark ml-2" (click)="reset()">Reset</button>
+        <button class="btn btn-outline-secondary ml-2" (click)="show(emailInput,contactInput)">Show</button>
+        <button class="btn btn-primary ml-2" (click)="redirectToSearch()" aria-label="Left Align">Redirect to Search<span class="glyphicon glyphicon-arrow-right"></span></button>
+    </form>
+    <div>
+        <input type="checkbox"/>
+        <p>Company :<span>{{entryForm.value.company}}</span></p>
+        <p>Country :<span>{{entryForm.value.country}}</span></p>
+        <p>Industry :<span>{{entryForm.value.industry}}</span></p>
+        <p>Email :<span>{{email}}</span></p>
+        <p>Contact :<span>{{contact}}</span></p>
+
+    </div>
+    <p>Form Value: {{ entryForm.value | json }}</p>
+</div>
+
