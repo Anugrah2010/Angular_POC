@@ -1,4 +1,5 @@
 const express = require('express');
+const https = require('https');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -9,30 +10,41 @@ extended: false
 }));
 app.use(cors());
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PATCH, DELETE, OPTIONS"
-    );
+    // res.setHeader(
+    //   "Access-Control-Allow-Headers",
+    //   "Origin, X-Requested-With, Content-Type, Accept"
+    // );
+    // res.setHeader(
+    //   "Access-Control-Allow-Methods",
+    //   "GET, POST, PATCH, DELETE, OPTIONS"
+    // );
     next();
   });
   
+  // methods start from here 
+ getObj={id:1, text:"Success"};
  app.get('/get', (req,res) => {
      console.log("Sending data...");
-     res.send(req.path);
+     res.send(JSON.stringify(getObj.text));
  })
   
 
   var obj = {id:1,text:"Data added successfully"};
-
-  app.post('/post', (req, res) => { 
+  app.get('/data', (req, res) => {
+    res.send([{
+    "Product": "Mobile Phones",
+    "Company": "Xiaomi",
+    "Price": "8000",
+    "Created": "12-10-2019"
+    }]);
+    });
+  
+    app.post('/post', (req, res) => { 
      // res.send(JSON.stringify(obj.text));
       //console.log(obj.text);
       console.log(req.body);

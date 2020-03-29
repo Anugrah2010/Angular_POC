@@ -87,8 +87,7 @@ import { SearchComponent } from './search/search.component';
     MatTableModule,
     MatSortModule,
     MatNativeDateModule,
-    MatCheckboxModule,
-
+    MatCheckboxModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 interface Product {
   name: string;
@@ -14,8 +14,11 @@ interface Product {
 })
 export class HomeComponent implements OnInit {
   procureForm: FormGroup;
-  products: Product[] = [{name: 'Laptop', type: 'IT'},
-              {name: 'Car', type: 'Automobile'}];
+  products: Product[] = [{name: '17 inch Monitor', type: 'Information Technology'},
+              {name: 'v8 engine', type: 'Automobile'},
+            {name: 'Hand sanitizer', type: 'Chemical'},
+            {name: '60V Battery', type: 'Energy'},
+            {name: 'Thermometers', type: 'Electronics'}];
   options: string[] = ['One', 'Two', 'Three', 'Four', 'Five'];
   checked = false;
   disabled = false;
@@ -25,13 +28,15 @@ export class HomeComponent implements OnInit {
   color;
   PPU = 1;
   today: number = Date.now();
-  constructor(private formBuilder: FormBuilder, private http: HttpClientModule) { }
+  getUrl = 'http://localhost:3000/get';
+  respData = 'click button to get data from server';
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
  ngOnInit(): void {
-   this.procure();
+   this.createProcureForm();
 
   }
-  procure() {
+  createProcureForm() {
     this.procureForm = this.formBuilder.group({
       productName: ['', [Validators.required]],
       model: ['', [Validators.required]],
@@ -40,19 +45,23 @@ export class HomeComponent implements OnInit {
       units: ['', [Validators.required]],
       payment: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      consignment: ['', [Validators.required]],
+      consignment: ['domestic', [Validators.required]],
       express: ['', [Validators.required]]
 
     });
   }
  onSubmit() {
    console.log(this.procureForm.value);
+
  }
  isChecked() {
     this.checked = ! this.checked;
  }
- postForm() {
-   
+  getRequest() {
+      this.http.get(this.getUrl).subscribe( (data: string) => {
+      console.log(data);
+      this.respData = data;
+  });
  }
 
 }

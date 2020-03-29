@@ -1,5 +1,5 @@
 <div>
-    <p class="h1 text-primary mb-9 clearfix float-sm-none text-center">Registration form</p>
+    <p class="h1 text-primary mb-9 clearfix float-sm-none text-center">Bootstrap 4 Registration form</p>
     <form [formGroup]="entryForm" (ngSubmit)="onSubmit()" class="form-group">
         <label class="form-label" for="company">Company Name</label>
         <input type="text" class="form-control mb-2"   formControlName="company"/>
@@ -7,10 +7,10 @@
         <input type="text" class="form-control mb-2"  formControlName="country"/>
         <label class="form-label" for="industry">Industry</label>
         <select class="form-control mb-2 dropdown" id="industry"  formControlName="industry">
-            <option>Mining</option>
+            <option>Pharmaceuticals</option>
             <option>Electronics</option>
             <option>Energy</option>
-            <option>Entertainment</option>
+            <option>Chemical</option>
             <option>Information Technology</option>
 
         </select>        
