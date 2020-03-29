@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^9.0.3",
     "@angular/platform-browser-dynamic": "^9.0.3",
     "@angular/router": "^9.0.3",
+    "@material/checkbox": "^5.1.0",
+    "@material/form-field": "^5.1.0",
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
     "rxjs": "~6.5.4",

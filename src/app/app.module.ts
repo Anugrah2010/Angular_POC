@@ -33,6 +33,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -48,7 +49,7 @@ import { SearchComponent } from './search/search.component';
     RegisterComponent,
     NotFoundComponent,
     FilterPipePipe,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +87,8 @@ import { SearchComponent } from './search/search.component';
     MatTableModule,
     MatSortModule,
     MatNativeDateModule,
+    MatCheckboxModule,
+
     ],
   providers: [],
   bootstrap: [AppComponent]
