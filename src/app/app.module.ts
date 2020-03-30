@@ -41,6 +41,8 @@ import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FilterPipePipe } from './filter-pipe.pipe';
 import { SearchComponent } from './search/search.component';
+import { ProcureSearchComponent } from './search/procure-search/procure-search.component';
+import { RegisterSearchComponent } from './search/register-search/register-search.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { SearchComponent } from './search/search.component';
     NotFoundComponent,
     FilterPipePipe,
     SearchComponent,
+    ProcureSearchComponent,
+    RegisterSearchComponent,
   ],
   imports: [
     BrowserModule,

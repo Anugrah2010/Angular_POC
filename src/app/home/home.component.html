@@ -31,7 +31,7 @@
           <mat-hint>You can choose the year here</mat-hint>
         </mat-form-field>
       
-        <mat-lable>Price range in INR</mat-lable>
+        <mat-label>Price range in INR</mat-label>
         <mat-slider min="0" max="100000" step="10" value="10" formControlName="price" [(ngModel)]="PPU"></mat-slider>
         <span>0 - {{PPU}}</span>
         <mat-error *ngIf="!procureForm.controls['price'].valid">Please select unit price</mat-error>

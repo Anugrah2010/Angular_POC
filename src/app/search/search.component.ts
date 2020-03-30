@@ -1,26 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormModel } from '../register/form-model';
-
+import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  searchText;
-  public items: FormModel[];
-  public item1;
-  public item2;
-  public item3;
+pathParam = true;
 
-    constructor() {
-      this.item1 = new FormModel('TCS', 'India', 'Information Technology', 'tcs@tcs.com', '9981194654');
-      this.item2 = new FormModel('Samsung', 'SKorea', 'Electronics', 'sam@sam.com', '1234567891');
-      this.item3 = new FormModel('TataPower', 'India', 'Mining', 'power@tata.com', '9876543219');
-    }
+constructor(private route: ActivatedRoute, private router: Router) {
+}
 
   ngOnInit(): void {
-    this.items = [this.item1, this.item2, this.item3] ;
-    console.log(this.items);
+    console.log(this.router.url);
+  }
+  routeEffect() {
+      this.pathParam = !this.pathParam;
   }
 }
