@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { MaterialFormModel } from './materialModel';
 
 interface Product {
   name: string;
@@ -14,11 +15,14 @@ interface Product {
 })
 export class HomeComponent implements OnInit {
   procureForm: FormGroup;
-  products: Product[] = [{name: '17 inch Monitor', type: 'Information Technology'},
-              {name: 'v8 engine', type: 'Automobile'},
-            {name: 'Hand sanitizer', type: 'Chemical'},
-            {name: '60V Battery', type: 'Energy'},
-            {name: 'Thermometers', type: 'Electronics'}];
+  products: Product[] = [{name: 'ECG monitor', type: 'Information Technology'},
+                         {name: 'v8 engine', type: 'Automobile'},
+                         {name: 'Hand sanitizer', type: 'Chemical'},
+                         {name: '60V Battery', type: 'Energy and Transmission'},
+                         {name: 'Thermometers', type: 'Electronics'},
+                         {name: 'Electric cables', type: 'Energy and Transmission'},
+                         {name: 'Disinfectant', type: 'Chemical'},
+                         ];
   options: string[] = ['One', 'Two', 'Three', 'Four', 'Five'];
   checked = false;
   disabled = false;
@@ -29,7 +33,9 @@ export class HomeComponent implements OnInit {
   PPU = 1;
   today: number = Date.now();
   getUrl = 'http://localhost:3000/get';
+  postUrl = 'http://localhost:3000/post';
   respData = 'click button to get data from server';
+  postData ;
   constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
  ngOnInit(): void {
@@ -38,6 +44,7 @@ export class HomeComponent implements OnInit {
   }
   createProcureForm() {
     this.procureForm = this.formBuilder.group({
+      company : ['', [ Validators.required]],
       productName: ['', [Validators.required]],
       model: ['', [Validators.required]],
       price: ['', [Validators.required]],
@@ -52,7 +59,7 @@ export class HomeComponent implements OnInit {
   }
  onSubmit() {
    console.log(this.procureForm.value);
-
+   this.postRequest(this.procureForm.value);
  }
  isChecked() {
     this.checked = ! this.checked;
@@ -63,5 +70,19 @@ export class HomeComponent implements OnInit {
       this.respData = data;
   });
  }
+  postRequest(object: MaterialFormModel) {
+    console.log();
+    //const post = object;
+
+    return this.http.post(this.postUrl, object)
+    .subscribe((response) => {
+      this.postData = JSON.stringify(response);
+      console.log('This is the post response ' + this.postData);
+    });
+  }
+
+//  dateCheck(){
+//    this.today  ;
+//  }
 
 }

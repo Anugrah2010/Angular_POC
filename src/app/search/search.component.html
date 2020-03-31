@@ -1,6 +1,8 @@
-<div *ngIf="pathParam" class="float-none clearfix">
-    <button class="btn btn-primary btn-lg mr-5" [routerLink]='["proSearch"]' (click)="routeEffect()" >Go to buyers directory</button>
-    <button class="btn btn-primary btn-lg" [routerLink]='["regSearch"]' (click)="routeEffect()">Go to sellers directory</button>
-</div>
+<div class="align-middle">
+    <div *ngIf="pathParam" class="float-none clearfix ">
+        <button class="btn btn-primary btn-lg mr-5" [routerLink]='["proSearch"]' (click)="routeEffect()" >Go to buyers directory</button>
+        <button class="btn btn-primary btn-lg" [routerLink]='["regSearch"]' (click)="routeEffect()">Go to sellers directory</button>
+    </div>
 
-<router-outlet *ngIf="!pathParam"></router-outlet>
+    <router-outlet *ngIf="!pathParam"></router-outlet>
+</div>

@@ -27,30 +27,30 @@ app.use((req, res, next) => {
   });
   
   // methods start from here 
- getObj={id:1, text:"Success"};
- app.get('/get', (req,res) => {
-     console.log("Sending data...");
-     res.send(JSON.stringify(getObj.text));
- })
-  
-
-  var obj = {id:1,text:"Data added successfully"};
-  app.get('/data', (req, res) => {
-    res.send([{
-    "Product": "Mobile Phones",
-    "Company": "Xiaomi",
-    "Price": "8000",
-    "Created": "12-10-2019"
-    }]);
-    });
+    getObj={id:1, text:"Success"};
+    app.get('/get', (req,res) => {
+        console.log("Sending data...");
+        res.send(JSON.stringify(getObj.text));
+    })
   
     app.post('/post', (req, res) => { 
      // res.send(JSON.stringify(obj.text));
       //console.log(obj.text);
+      procureArray.push(JSON.stringify(req.body));
       console.log(req.body);
-      res.send(JSON.stringify(req.body));
+      res.send(req.body);
 
+    });
 
+    procureArray[{}] = [{company: 'jhbjbjbhjb',
+    productName: { name: 'v8 engine', type: 'Automobile' },
+    price: 52000,
+    date: '2020-04-12T18:30:00.000Z',
+    units: 'Three',
+    payment: true,
+    email: 'trips@gmail.com',
+    consignment: 'international',
+    express: true}];
     //   res.status(200).json({
     //     status: 'succes',
     //     data: req.body,
@@ -60,4 +60,4 @@ app.use((req, res, next) => {
       //res.send(req.body);
       //console.log("Post received " ,post);
       //res.send(req.body);
-  });
+ 
