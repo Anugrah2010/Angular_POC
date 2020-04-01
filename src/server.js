@@ -2,7 +2,7 @@ const express = require('express');
 const https = require('https');
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+const fs = require('fs');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -32,25 +32,29 @@ app.use((req, res, next) => {
         console.log("Sending data...");
         res.send(JSON.stringify(getObj.text));
     })
-  
+    
     app.post('/post', (req, res) => { 
-     // res.send(JSON.stringify(obj.text));
-      //console.log(obj.text);
-      procureArray.push(JSON.stringify(req.body));
       console.log(req.body);
       res.send(req.body);
 
     });
+     var procureArray = new Array();
+    app.get('/getArray',(req,res)=>{
+      console.log("fetching array...");
 
-    procureArray[{}] = [{company: 'jhbjbjbhjb',
-    productName: { name: 'v8 engine', type: 'Automobile' },
-    price: 52000,
-    date: '2020-04-12T18:30:00.000Z',
-    units: 'Three',
-    payment: true,
-    email: 'trips@gmail.com',
-    consignment: 'international',
-    express: true}];
+      fs.readFile('./app/procure.json',  function(err, data) {
+        if (err) throw err;
+        procureArray = JSON.parse(data);
+        console.log(data);
+        //procureArray.push(data);
+        //console.log("Stringified "+procureArray);
+        console.log(procureArray);
+        
+      });
+      res.send(JSON.stringify(procureArray));
+    })
+
+     
     //   res.status(200).json({
     //     status: 'succes',
     //     data: req.body,

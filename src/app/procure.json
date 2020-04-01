@@ -1,0 +1,14 @@
+[
+ {  "company":"jhbjbjbhjb",
+    "productName":"Hand sanitizer",
+    "model":"2019",
+    "price":54000,
+    "date":"2020-04-15T18:30:00.000Z",
+    "units":"Four",
+    "payment":"online",
+    "email":"trips@gmail.com",
+    "geography":"Asia",
+    "logistics":"not required",
+    "express":true
+ }
+]

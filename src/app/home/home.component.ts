@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
                          {name: 'Electric cables', type: 'Energy and Transmission'},
                          {name: 'Disinfectant', type: 'Chemical'},
                          ];
+  geography: string[] = ['Asia', 'Europe', 'North America', 'South America', 'Australia', 'Africa'];
   options: string[] = ['One', 'Two', 'Three', 'Four', 'Five'];
   checked = false;
   disabled = false;
@@ -52,7 +53,8 @@ export class HomeComponent implements OnInit {
       units: ['', [Validators.required]],
       payment: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      consignment: ['domestic', [Validators.required]],
+      geography: ['', [Validators.required]],
+      logistics: ['required', [Validators.required]],
       express: ['', [Validators.required]]
 
     });
@@ -63,6 +65,9 @@ export class HomeComponent implements OnInit {
  }
  isChecked() {
     this.checked = ! this.checked;
+    if (this.checked) {
+      this.procureForm.controls.payment.setValue('online');
+    } else { this.procureForm.controls.payment.setValue('offline'); }
  }
   getRequest() {
       this.http.get(this.getUrl).subscribe( (data: string) => {
@@ -71,8 +76,6 @@ export class HomeComponent implements OnInit {
   });
  }
   postRequest(object: MaterialFormModel) {
-    console.log();
-    //const post = object;
 
     return this.http.post(this.postUrl, object)
     .subscribe((response) => {

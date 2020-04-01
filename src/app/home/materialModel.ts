@@ -1,10 +1,14 @@
 export class MaterialFormModel {
-  product: string;
+  company: string;
+  productName: string;
   model: string;
-  date: Date;
   price: number;
+  date: Date;
   units: number;
   payment: string;
   email: string;
+  geography: string;
+  logistics: string;
+  express: boolean;
  
 }
