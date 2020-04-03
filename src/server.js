@@ -32,12 +32,21 @@ app.use((req, res, next) => {
         console.log("Sending data...");
         res.send(JSON.stringify(getObj.text));
     })
-    
+    //post method 
     app.post('/post', (req, res) => { 
       console.log(req.body);
       res.send(req.body);
-
-    });
+    //   var content = JSON.stringify(req.body);
+    //   fs.appendFile('./app/procure.json',content ,err => {
+    //     if (err) {
+    //       console.error(err)
+    //       return
+    //     }
+      
+    // });
+    // console.log('file updated successfully');
+  });
+     //Read JSON file method
      var procureArray = new Array();
     app.get('/getArray',(req,res)=>{
       console.log("fetching array...");
@@ -46,22 +55,15 @@ app.use((req, res, next) => {
         if (err) throw err;
         procureArray = JSON.parse(data);
         console.log(data);
-        //procureArray.push(data);
-        //console.log("Stringified "+procureArray);
         console.log(procureArray);
-        
       });
       res.send(JSON.stringify(procureArray));
     })
+    
+    //Write JSON file method
+    app.post('/postUpdate', (req, res) => { 
+      console.log(req.body);
+      res.send(req.body);
 
-     
-    //   res.status(200).json({
-    //     status: 'succes',
-    //     data: req.body,
-    //   })
-
-      //const post = req.body;
-      //res.send(req.body);
-      //console.log("Post received " ,post);
-      //res.send(req.body);
- 
+    });
+    

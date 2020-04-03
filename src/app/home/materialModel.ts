@@ -3,8 +3,8 @@ export class MaterialFormModel {
   productName: string;
   model: string;
   price: number;
-  date: Date;
-  units: number;
+  date: string;
+  units: string;
   payment: string;
   email: string;
   geography: string;
