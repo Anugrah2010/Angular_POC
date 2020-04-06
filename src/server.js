@@ -27,38 +27,50 @@ app.use((req, res, next) => {
   });
   
   // methods start from here 
+
+  //get methods
     getObj={id:1, text:"Success"};
     app.get('/get', (req,res) => {
         console.log("Sending data...");
         res.send(JSON.stringify(getObj.text));
     })
-    //post method 
-    app.post('/post', (req, res) => { 
-      console.log(req.body);
-      res.send(req.body);
-    //   var content = JSON.stringify(req.body);
-    //   fs.appendFile('./app/procure.json',content ,err => {
-    //     if (err) {
-    //       console.error(err)
-    //       return
-    //     }
-      
-    // });
-    // console.log('file updated successfully');
-  });
-     //Read JSON file method
-     var procureArray = new Array();
-    app.get('/getArray',(req,res)=>{
+
+     //procure search get method
+    var procureArray = new Array();
+    app.get('/getProcureArray',(req,res)=>{
       console.log("fetching array...");
 
-      fs.readFile('./app/procure.json',  function(err, data) {
+      fs.readFile('./app/procure.json', 'utf8',  function(err, data) {
         if (err) throw err;
-        procureArray = JSON.parse(data);
-        console.log(data);
-        console.log(procureArray);
+        obj = JSON.parse(data);
+        console.log(obj);
+        procureArray = obj.table;
       });
       res.send(JSON.stringify(procureArray));
-    })
+    });
+
+
+
+    //post methods
+    var obj = {
+      table: []
+    };
+    app.post('/post', (req, res) => {
+      console.log(req.body);
+      
+      fs.readFile('./app/procure.json', 'utf8', function(err, data) {
+        if (err) throw err;
+         obj = JSON.parse(data);
+         obj.table.push(req.body);
+         json = JSON.stringify(obj);
+         fs.writeFile('./app/procure.json', json, 'utf8', function(err, data){
+          if(err) throw err;   
+          console.log("Data added successfully");
+             console.log(data);
+         });
+
+      });
+    });
     
     //Write JSON file method
     app.post('/postUpdate', (req, res) => { 
@@ -66,4 +78,3 @@ app.use((req, res, next) => {
       res.send(req.body);
 
     });
-    

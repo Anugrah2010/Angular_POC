@@ -73,8 +73,8 @@ export class HomeComponent implements OnInit {
       this.http.get(this.getUrl).subscribe( (data: string) => {
       console.log(data);
       this.respData = data;
-  });
- }
+      });
+  }
   postRequest(object: MaterialFormModel) {
 
     return this.http.post(this.postUrl, object)

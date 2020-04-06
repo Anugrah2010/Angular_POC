@@ -21,7 +21,7 @@ export class ProcureSearchComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient) { }
   displayedColumns: string[] = ['company', 'product', 'price', 'units', 'payment', 'email', 'geography'];
   fetchArray: MaterialFormModel[];
-  fetchArrayUrl = 'http://localhost:3000/getArray';
+  fetchArrayUrl = 'http://localhost:3000/getProcureArray';
   dataSource: MatTableDataSource<MaterialFormModel>;
 
 
@@ -41,5 +41,8 @@ export class ProcureSearchComponent implements OnInit {
   }
   routeBack() {
     this.router.navigate(['/search']);
+  }
+  refreshRows(){
+    this.ngOnInit();
   }
 }
