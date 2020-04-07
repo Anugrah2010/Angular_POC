@@ -3,14 +3,7 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
 import { MaterialFormModel } from 'src/app/home/materialModel';
-import * as io from 'socket.io-client';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 @Component({
   selector: 'app-procure-search',
   templateUrl: './procure-search.component.html',

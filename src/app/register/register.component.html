@@ -23,6 +23,7 @@
         <button class="btn btn-outline-secondary ml-2" (click)="show(emailInput,contactInput)">Show</button>
         <button class="btn btn-primary ml-2" (click)="redirectToSearch()" aria-label="Left Align">Redirect to Search<span class="glyphicon glyphicon-arrow-right"></span></button>
     </form>
+    <div class="btn btn-secondary" (click)="getCountries()">Get Countries</div>
     <div>
         <input type="checkbox"/>
         <p>Company :<span>{{entryForm.value.company}}</span></p>

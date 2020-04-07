@@ -27,16 +27,27 @@ app.use((req, res, next) => {
   });
   
   // methods start from here 
+  var obj = {
+    table: []
+  };
+  var registerArray = new Array();
+  var procureArray = new Array();
 
   //get methods
-    getObj={id:1, text:"Success"};
-    app.get('/get', (req,res) => {
-        console.log("Sending data...");
-        res.send(JSON.stringify(getObj.text));
+  //get 
+    app.get('/getRegisterArray', (req,res) => {
+      fs.readFile('./app/register.json', 'utf8',  function(err, data) {
+        if (err) throw err;
+        obj = JSON.parse(data);
+        console.log(obj);
+        registerArray = obj.table;
+        console.log(registerArray);
+      });
+      res.send(JSON.stringify(registerArray));
+
     })
 
      //procure search get method
-    var procureArray = new Array();
     app.get('/getProcureArray',(req,res)=>{
       console.log("fetching array...");
 
@@ -49,12 +60,8 @@ app.use((req, res, next) => {
       res.send(JSON.stringify(procureArray));
     });
 
-
-
     //post methods
-    var obj = {
-      table: []
-    };
+    // post procure form data
     app.post('/post', (req, res) => {
       console.log(req.body);
       
@@ -64,17 +71,24 @@ app.use((req, res, next) => {
          obj.table.push(req.body);
          json = JSON.stringify(obj);
          fs.writeFile('./app/procure.json', json, 'utf8', function(err, data){
-          if(err) throw err;   
-          console.log("Data added successfully");
-             console.log(data);
-         });
-
+            if(err) throw err;   
+            console.log("Data added successfully");
+              console.log(data);
+          });
       });
     });
     
-    //Write JSON file method
-    app.post('/postUpdate', (req, res) => { 
-      console.log(req.body);
-      res.send(req.body);
-
+    // post register form data 
+    app.post('/postRegisterUrl', (req, res) => { 
+      fs.readFile('./app/register.json', 'utf8', function(err, data) {
+        if (err) throw err;
+         obj = JSON.parse(data);
+         obj.table.push(req.body);
+         json = JSON.stringify(obj);
+         fs.writeFile('./app/register.json', json, 'utf8', function(err, data){
+            if(err) throw err;   
+            console.log("Data added successfully");
+              console.log(data);
+          });
+      });
     });

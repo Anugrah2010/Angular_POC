@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormModel } from 'src/app/register/form-model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register-search',
@@ -9,25 +10,22 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RegisterSearchComponent implements OnInit {
   searchText;
-  public items: FormModel[];
-  public item1;
-  public item2;
-  public item3;
-  
-  constructor(private router: Router, private route: ActivatedRoute) {
-    this.item1 = new FormModel('TCS', 'India', 'Information Technology', 'tcs@tcs.com', '9981194654');
-    this.item2 = new FormModel('Samsung', 'SKorea', 'Electronics', 'sam@sam.com', '1234567891');
-    this.item3 = new FormModel('TataPower', 'India', 'Energy', 'power@tata.com', '9876543219');
+  items;
+  getArrayUrl = 'http://localhost:3000/getRegisterArray';
 
+
+  constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) {
   }
 
   ngOnInit(): void {
-    this.items = [this.item1, this.item2, this.item3] ;
-    console.log(this.items);
+    this.http.get(this.getArrayUrl).subscribe((res) => {
+      console.log(res);
+      console.log(JSON.stringify(res));
+      this.items = res;
 
+     });
   }
   routeBack() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
-
 }
