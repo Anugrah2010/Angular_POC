@@ -12,9 +12,10 @@ import { MaterialFormModel } from 'src/app/home/materialModel';
 export class ProcureSearchComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient) { }
-  displayedColumns: string[] = ['company', 'product', 'price', 'units', 'payment', 'email', 'geography'];
+  displayedColumns: string[] = ['company', 'product', 'price', 'units', 'payment', 'email', 'geography', 'edit'];
   fetchArray: MaterialFormModel[];
   fetchArrayUrl = 'http://localhost:3000/getProcureArray';
+  deleteEntryUrl = 'http://localhost:3000/deleteProcureEntry';
   dataSource: MatTableDataSource<MaterialFormModel>;
 
 
@@ -37,5 +38,10 @@ export class ProcureSearchComponent implements OnInit {
   }
   refreshRows(){
     this.ngOnInit();
+  }
+  deleteEntry(index) {
+    this.http.delete(this.deleteEntryUrl, index).subscribe( res => {
+      console.log(res);
+    });
   }
 }

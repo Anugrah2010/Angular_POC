@@ -3,6 +3,7 @@ import {FormModel} from './form-model';
 import { Form, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CountryModel } from './country-model';
 
 @Component({
   selector: 'app-register',
@@ -19,8 +20,8 @@ export class RegisterComponent implements OnInit {
     postResp;
     email;
     contact;
-    countryAPIurl = 'https://restcountries-v1.p.rapidapi.com/all';
-    countryArray ;
+    countryAPIurl = 'http://localhost:3000/getCountries';
+    countryArray: CountryModel[] ;
 
     entryForm = this.fb.group({
       company: ['', [Validators.required, Validators.pattern]],
@@ -29,8 +30,8 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       contact: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]]
     });
-
   ngOnInit(): void {
+    this.getCountries();
   }
   reset() {
     this.entryForm.reset();
@@ -49,18 +50,14 @@ export class RegisterComponent implements OnInit {
     return this.Json = JSON.stringify(this.entryForm.value);
   }
 
-  redirectToSearch(){
+  redirectToSearch() {
      this.router.navigate(['/search']);
   }
+
   getCountries() {
-    this.http.get(this.countryAPIurl, { headers: {
-      'x-rapidapi-host': 'restcountries-v1.p.rapidapi.com',
-      'x-rapidapi-key': '2c07c56fffmsh612916139536f33p1ff344jsne84e95cab4a3'
-    }}).subscribe(res => {
+    this.http.get(this.countryAPIurl).subscribe((res: CountryModel[]) => {
       console.log(res);
       this.countryArray = res;
-
     });
-
   }
 }

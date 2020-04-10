@@ -4,7 +4,10 @@
         <label class="form-label" for="company">Company Name</label>
         <input type="text" class="form-control mb-2"   formControlName="company"/>
         <label class="form-label" for="country">Country</label>
-        <input type="text" class="form-control mb-2"  formControlName="country"/>
+        <select class="form-control mb-2 dropdown" id="country" formControlName="country">
+            <option>----Select----- </option>
+            <option *ngFor="let country of countryArray">{{country.name}}</option>
+        </select>
         <label class="form-label" for="industry">Industry</label>
         <select class="form-control mb-2 dropdown" id="industry"  formControlName="industry">
             <option>Pharmaceuticals</option>
@@ -18,12 +21,12 @@
         <input type="text" class="form-control mb-2"  formControlName="email" #emailInput/>
         <label class="form-label" for="contact">Contact number</label>
         <input type="text" class="form-control mb-2"   formControlName="contact" #contactInput/>
-        <button class="btn btn-outline-success" type="submit">Submit</button>
+        <button class="btn btn-outline-success" type="submit" [disabled]="!entryForm.valid">Submit</button>
         <button class="btn btn-outline-dark ml-2" (click)="reset()">Reset</button>
         <button class="btn btn-outline-secondary ml-2" (click)="show(emailInput,contactInput)">Show</button>
         <button class="btn btn-primary ml-2" (click)="redirectToSearch()" aria-label="Left Align">Redirect to Search<span class="glyphicon glyphicon-arrow-right"></span></button>
     </form>
-    <div class="btn btn-secondary" (click)="getCountries()">Get Countries</div>
+    <!-- <div class="btn btn-secondary" (click)="getCountries()">Get Countries</div> -->
     <div>
         <input type="checkbox"/>
         <p>Company :<span>{{entryForm.value.company}}</span></p>
