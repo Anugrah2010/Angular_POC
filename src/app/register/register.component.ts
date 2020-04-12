@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {FormModel} from './form-model';
 import { Form, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { CountryModel } from './country-model';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements AfterViewInit {
 
   constructor(private fb: FormBuilder, private router: Router, private http: HttpClient) { }
     model: FormModel;
@@ -24,13 +24,16 @@ export class RegisterComponent implements OnInit {
     countryArray: CountryModel[] ;
 
     entryForm = this.fb.group({
-      company: ['', [Validators.required, Validators.pattern]],
+      company: ['', [Validators.required]],
       country: ['', Validators.required],
       industry: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       contact: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]]
     });
-  ngOnInit(): void {
+  // ngOnInit(): void {
+  //   this.getCountries();
+  // }
+  ngAfterViewInit(): void {
     this.getCountries();
   }
   reset() {
@@ -46,8 +49,10 @@ export class RegisterComponent implements OnInit {
       this.postResp = res;
       console.log(this.postResp);
     });
+    this.reset();
     console.warn(this.entryForm.value);
     return this.Json = JSON.stringify(this.entryForm.value);
+
   }
 
   redirectToSearch() {

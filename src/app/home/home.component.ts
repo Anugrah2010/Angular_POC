@@ -37,11 +37,14 @@ export class HomeComponent implements OnInit {
   postUrl = 'http://localhost:3000/post';
   respData = 'click button to get data from server';
   postData ;
+  successMsg: string;
+  delayReset = 1000;
+  barActive = false;
   constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
  ngOnInit(): void {
    this.createProcureForm();
-
+   this.successMsg = '';
   }
   createProcureForm() {
     this.procureForm = this.formBuilder.group({
@@ -60,21 +63,23 @@ export class HomeComponent implements OnInit {
     });
   }
  onSubmit() {
-   console.log(this.procureForm.value);
-   this.postRequest(this.procureForm.value);
+  this.barActive = true;
+  console.log(this.procureForm.value);
+  this.postRequest(this.procureForm.value);
+  this.successMsg = 'Procurement request has been submitted !!';
+  setTimeout(() => { this.resetForm(); }, this.delayReset);
  }
+  resetForm() {
+    this.barActive = false;
+    this.procureForm.markAsUntouched();
+    this.procureForm.reset();
+  }
  isChecked() {
     this.checked = ! this.checked;
     if (this.checked) {
       this.procureForm.controls.payment.setValue('online');
     } else { this.procureForm.controls.payment.setValue('offline'); }
  }
-  getRequest() {
-      this.http.get(this.getUrl).subscribe( (data: string) => {
-      console.log(data);
-      this.respData = data;
-      });
-  }
   postRequest(object: MaterialFormModel) {
 
     return this.http.post(this.postUrl, object)

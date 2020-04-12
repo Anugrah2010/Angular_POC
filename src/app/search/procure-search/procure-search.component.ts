@@ -24,11 +24,11 @@ export class ProcureSearchComponent implements OnInit {
       console.log(res);
       console.log(JSON.stringify(res));
       this.fetchArray = res;
-      this.dataSource = new MatTableDataSource(res);
+      this.dataSource = new MatTableDataSource(this.fetchArray);
+
     });
 
   }
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -36,12 +36,15 @@ export class ProcureSearchComponent implements OnInit {
   routeBack() {
     this.router.navigate(['/search']);
   }
-  refreshRows(){
+  refreshRows() {
     this.ngOnInit();
   }
   deleteEntry(index) {
-    this.http.delete(this.deleteEntryUrl, index).subscribe( res => {
+    this.fetchArray.splice(index, 1);
+    console.log(this.fetchArray);
+    this.http.post(this.deleteEntryUrl, this.fetchArray).subscribe( res => {
       console.log(res);
+      this.refreshRows();
     });
   }
 }

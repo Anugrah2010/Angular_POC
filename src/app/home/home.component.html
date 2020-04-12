@@ -3,6 +3,7 @@
 
   <mat-card>   
     <mat-card-content>
+      <mat-progress-bar *ngIf="barActive" mode="indeterminate"></mat-progress-bar>
       <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="procureForm">
         
         <mat-form-field class="example-full-width">
@@ -107,13 +108,9 @@
         <div class="example-margin">
           <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!procureForm.valid">Submit</button>
         </div>
-        
+        <div class="example-margin"><p>{{successMsg}}</p></div>
 
       </form>
-      <div class="example-margin">
-        <button mat-raised-button color="secondary" class="button" (click)="getRequest()">Get Data</button>
-        <span class="example-margin">{{respData}}</span>
-      </div>
     </mat-card-content>
  </mat-card>
  <p class="example-margin text-center">{{postData}}</p>

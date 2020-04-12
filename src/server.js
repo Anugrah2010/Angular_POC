@@ -58,39 +58,9 @@ app.use((req, res, next) => {
             procureArray = obj.table;
           });
           res.send(JSON.stringify(procureArray));
+          console.log("array fetched");
         });
 
-    //     var obj;
-
-    // app.get('/getCountries', (request, response) => {
-    //   var options = {
-    //   "method": "GET",
-    //   "hostname": "restcountries-v1.p.rapidapi.com",
-    //   "port": null,
-    //   "path": "/all",
-    //   "headers": {
-    //     "x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
-    //     "x-rapidapi-key": "2c07c56fffmsh612916139536f33p1ff344jsne84e95cab4a3"
-    //     }
-    //   };
-
-    //   var req = https.request(options, function (res) {
-    //     var chunks = [];
-
-    //     res.on("data", function (chunk) {
-    //       chunks.push(chunk);
-    //       console.log(JSON.stringify(chunks));
-    //     });
-
-    //     res.on("end", function () {
-    //       var body = Buffer.concat(chunks);
-    //       //console.log(body.forEach(x => x.name).toString());
-    //     });
-    //   });
-
-    // req.end();
-    // //response.send(JSON.stringify());
-    // });  
       var request = require("request");
       var lang = new Array();
       var resp ;
@@ -107,14 +77,11 @@ app.use((req, res, next) => {
       request(options, function (error, response, body) {
         if (error) throw new Error(error);
       
-        //console.log(JSON.parse(body));
-        //lang.push(JSON.parse(body));
           resp = JSON.parse(body);
         
          
         
         console.log(resp);
-        //lang.push(obj);
       });
         res.send(JSON.stringify(resp));
     });
@@ -154,18 +121,20 @@ app.use((req, res, next) => {
 
     //delete methods
     //delete procure array element
-    app.delete('/deleteProcureEntry',(req,res) => {
-      fs.readFile('./app/procure.json','utf8', function(err, data){
+    app.post('/deleteProcureEntry',(req,res) => {
+      fs.readFile('./app/procure.json', 'utf8', function(err, data) {
         if (err) throw err;
-        obj = JSON.parse(data);
-        obj.table.splice(req.body, 1);
-        console.log(obj.table.length); 
-        json = JSON.stringify(obj);
-      });
-        fs.writeFile('./app/procure.json', json, 'utf8', function(err, data){
+         obj = JSON.parse(data);
+         obj.table.splice(0, obj.table.length);
+         obj.table = req.body;
+         json = JSON.stringify(obj);
+
+         console.log('This is the delete request body'+req.body);
+         console.log(json);
+         fs.writeFile('./app/procure.json', json, 'utf8', function(err, data){
            if(err) throw err;   
            console.log("Data deleted successfully");
              console.log(data);
         });
     });
-
+  });
