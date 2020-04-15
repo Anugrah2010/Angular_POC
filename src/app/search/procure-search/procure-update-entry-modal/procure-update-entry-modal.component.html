@@ -1,0 +1,68 @@
+<h1 mat-dialog-title>Update procurement request</h1>
+<div mat-dialog-content class="dialog-align-center">
+    <form class="example-form">
+    
+        <mat-form-field appearance="outline">
+            <mat-label>Company</mat-label>
+            <input matInput type="text"  [disabled]="true" [(ngModel)]="selectedEntry.company"  name="company">
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Product</mat-label>
+            <input matInput type="text"  [disabled]="true" [(ngModel)]="selectedEntry.productName" name="product">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Model</mat-label>
+            <select matNativeControl [(ngModel)]="selectedEntry.model" [ngModelOptions]="{standalone: true}" name="model" required>
+                <option label="--select something --"></option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+            </select>
+        </mat-form-field>
+        <mat-label>Price range in INR</mat-label>
+        <mat-slider min="0" max="100000" step="500" value="10" [(ngModel)]="selectedEntry.price" name="price"></mat-slider>
+        <span>0 - {{selectedEntry.price}}</span>
+        
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Delivery date</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedEntry.date" name="model">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Number of units</mat-label>
+            <select matNativeControl [(ngModel)]="selectedEntry.units" name="units" required>
+                <option label="--select something --"></option>
+                <option>One</option>
+                <option>Two</option>
+                <option>Three</option>
+                <option>Four</option>
+                <option>Five</option>
+            </select>
+        </mat-form-field>
+        <div class="example-full-width" >
+        <mat-label>Payment Mode</mat-label>
+        <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked"  (change)="isChecked()"></mat-slide-toggle>
+        <span *ngIf="checked; else offline">Online</span>
+        <ng-template #offline><span>Offline</span></ng-template>
+        </div>  
+        <div class="example-full-width" >
+            <mat-label class="example-margin">Logistics</mat-label>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedEntry.logistics" name="logistics">
+                <mat-radio-button class="radio-element" value="required">Required</mat-radio-button>
+                <mat-radio-button class="radio-element" value="not required">Not required</mat-radio-button>
+            </mat-radio-group>
+        </div>  
+    </form>
+</div>
+
+<div mat-dialog-actions>
+<!-- <button mat-raised-button color="primary" [mat-dialog-close]="data.object" class="button" [disabled]="true" (click)="onSubmit()" cdkFocusInitial>Submit update</button> -->
+<button mat-button (click)="onNoClick()">Cancel</button>
+<button mat-raised-button color="primary" (click)="onUpdate()" [mat-dialog-close]="selectedEntry" class="button" cdkFocusInitial>Submit update</button>
+</div>

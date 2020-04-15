@@ -43,6 +43,7 @@ import { FilterPipePipe } from './filter-pipe.pipe';
 import { SearchComponent } from './search/search.component';
 import { ProcureSearchComponent } from './search/procure-search/procure-search.component';
 import { RegisterSearchComponent } from './search/register-search/register-search.component';
+import { ProcureUpdateEntryModalComponent } from './search/procure-search/procure-update-entry-modal/procure-update-entry-modal.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { RegisterSearchComponent } from './search/register-search/register-searc
     SearchComponent,
     ProcureSearchComponent,
     RegisterSearchComponent,
+    ProcureUpdateEntryModalComponent,
   ],
   imports: [
     BrowserModule,
