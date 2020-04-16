@@ -1,8 +1,14 @@
-<div class="align-middle">
-    <div *ngIf="pathParam" class="float-none clearfix ">
-        <button class="btn btn-primary btn-lg mr-5" [routerLink]='["proSearch"]' (click)="routeEffect()" >Go to buyers directory</button>
-        <button class="btn btn-primary btn-lg" [routerLink]='["regSearch"]' (click)="routeEffect()">Go to sellers directory</button>
-    </div>
-
-    <router-outlet *ngIf="!pathParam"></router-outlet>
-</div>
+<mat-sidenav-container class="example-container m0-x">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+        <div class="button-flex">
+            <button mat-raised-button class="example-margin" color="primary" [routerLink]='["proSearch"]' (click)="routeEffect()" >Go to buyers directory</button>
+            <button mat-raised-button class="example-margin" color="accent" [routerLink]='["regSearch"]' (click)="routeEffect()">Go to sellers directory</button>
+        </div>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <p><button mat-icon-button color="primary" (click)="sidenav.toggle()"><mat-icon color="accent">menu</mat-icon></button></p>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+    

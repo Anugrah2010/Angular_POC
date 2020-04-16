@@ -10,6 +10,8 @@ pathParam = true;
 
 constructor(private route: ActivatedRoute, private router: Router) {
 }
+events: string[] = [];
+opened: boolean;
 
   ngOnInit(): void {
     console.log(this.router.url);
