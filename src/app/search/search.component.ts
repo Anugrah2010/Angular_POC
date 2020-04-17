@@ -17,6 +17,6 @@ opened: boolean;
     console.log(this.router.url);
   }
   routeEffect() {
-      this.pathParam = !this.pathParam;
+      this.opened = false;
   }
 }

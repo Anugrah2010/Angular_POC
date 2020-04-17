@@ -1,7 +1,8 @@
 <div>
   <mat-card>
     <mat-card-content>
-      <h1>search through orders listing</h1>
+      <h1>Procurement orders listing</h1>
+      <button mat-button color="primary" (click)="refreshRows()">Refresh</button>
       <mat-form-field>
           <mat-label>Filter</mat-label>
           <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">

@@ -1,8 +1,8 @@
 <mat-sidenav-container class="example-container m0-x">
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
         <div class="button-flex">
-            <button mat-raised-button class="example-margin" color="primary" [routerLink]='["proSearch"]' (click)="routeEffect()" >Go to buyers directory</button>
-            <button mat-raised-button class="example-margin" color="accent" [routerLink]='["regSearch"]' (click)="routeEffect()">Go to sellers directory</button>
+            <button mat-raised-button color="primary" [routerLink]='["proSearch"]' (click)="routeEffect()" >Go to buyers directory</button>
+            <button mat-raised-button color="accent" [routerLink]='["regSearch"]' (click)="routeEffect()">Go to sellers directory</button>
         </div>
     </mat-sidenav>
   
