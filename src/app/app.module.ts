@@ -44,6 +44,7 @@ import { SearchComponent } from './search/search.component';
 import { ProcureSearchComponent } from './search/procure-search/procure-search.component';
 import { RegisterSearchComponent } from './search/register-search/register-search.component';
 import { ProcureUpdateEntryModalComponent } from './search/procure-search/procure-update-entry-modal/procure-update-entry-modal.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ProcureUpdateEntryModalComponent } from './search/procure-search/procur
     ProcureSearchComponent,
     RegisterSearchComponent,
     ProcureUpdateEntryModalComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,

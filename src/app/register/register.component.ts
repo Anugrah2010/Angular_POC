@@ -39,11 +39,6 @@ export class RegisterComponent implements AfterViewInit {
   reset() {
     this.entryForm.reset();
   }
-  show(email: HTMLInputElement, contact: HTMLInputElement) {
-    this.email = email.value;
-    this.contact = contact.value;
-
-  }
   onSubmit() {
     this.http.post(this.postRegisterUrl, this.entryForm.value).subscribe((res) => {
       this.postResp = res;

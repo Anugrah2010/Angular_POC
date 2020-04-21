@@ -10,20 +10,17 @@
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['/search']" routerLinkActive="active">Search</a>
             </li>
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-              <div class="dropdown-menu">
-                  <a href="#" class="dropdown-item">Link 1</a>
-                  <a href="#" class="dropdown-item">Link 3</a>
-              </div>
-            </li>
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Registration</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Contact Us</a>
+              <a class="nav-link">Find sellers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Find buyers</a>
             </li>
           </ul>
+          <button mat-raised-button color="accent" class="example-margin" [routerLink]="['/auth']">Login</button>
        </div>
     </div>
 </nav>

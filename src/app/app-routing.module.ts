@@ -6,6 +6,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
 import { ProcureSearchComponent } from './search/procure-search/procure-search.component';
 import { RegisterSearchComponent } from './search/register-search/register-search.component';
+import { AuthComponent } from './auth/auth.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
        {path: 'proSearch', component: ProcureSearchComponent, pathMatch: 'full'},
        {path: 'regSearch', component: RegisterSearchComponent, pathMatch: 'full'}
       ]},
+  {path: 'auth', component: AuthComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 

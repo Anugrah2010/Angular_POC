@@ -1,5 +1,5 @@
 <div>
-    <p class="h1 text-primary mb-9 clearfix float-sm-none text-center">Bootstrap 4 Registration form</p>
+    <p class="h1 text-primary mb-9 clearfix float-sm-none text-center">Bootstrap 4 Seller Registration form</p>
     <form [formGroup]="entryForm" (ngSubmit)="onSubmit()" class="form-group">
         <label class="form-label" for="company">Company Name</label>
         <input type="text" class="form-control mb-2"   formControlName="company"/>
@@ -23,7 +23,6 @@
         <input type="text" class="form-control mb-2"   formControlName="contact" #contactInput/>
         <button class="btn btn-outline-success" type="submit" [disabled]="!entryForm.valid">Submit</button>
         <button class="btn btn-outline-dark ml-2" (click)="reset()">Reset</button>
-        <button class="btn btn-outline-secondary ml-2" (click)="show(emailInput,contactInput)">Show</button>
         <button class="btn btn-primary ml-2" (click)="redirectToSearch()" aria-label="Left Align">Redirect to Search<span class="glyphicon glyphicon-arrow-right"></span></button>
     </form>
     <!-- <div class="btn btn-secondary" (click)="getCountries()">Get Countries</div> -->
@@ -32,8 +31,8 @@
         <p>Company :<span>{{entryForm.value.company}}</span></p>
         <p>Country :<span>{{entryForm.value.country}}</span></p>
         <p>Industry :<span>{{entryForm.value.industry}}</span></p>
-        <p>Email :<span>{{email}}</span></p>
-        <p>Contact :<span>{{contact}}</span></p>
+        <p>Email :<span>{{entryForm.value.email}}</span></p>
+        <p>Contact :<span>{{entryForm.value.contact}}</span></p>
 
     </div>
     <p>Form Value: {{ entryForm.value | json }}</p>
