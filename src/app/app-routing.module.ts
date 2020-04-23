@@ -10,7 +10,8 @@ import { AuthComponent } from './auth/auth.component';
 
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: AuthComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'search', component: SearchComponent,
     children: [

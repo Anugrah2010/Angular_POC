@@ -34,6 +34,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -45,6 +47,7 @@ import { ProcureSearchComponent } from './search/procure-search/procure-search.c
 import { RegisterSearchComponent } from './search/register-search/register-search.component';
 import { ProcureUpdateEntryModalComponent } from './search/procure-search/procure-update-entry-modal/procure-update-entry-modal.component';
 import { AuthComponent } from './auth/auth.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,7 @@ import { AuthComponent } from './auth/auth.component';
     RegisterSearchComponent,
     ProcureUpdateEntryModalComponent,
     AuthComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,7 +99,8 @@ import { AuthComponent } from './auth/auth.component';
     MatTableModule,
     MatSortModule,
     MatNativeDateModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FlexLayoutModule
     ],
   providers: [],
   bootstrap: [AppComponent]
