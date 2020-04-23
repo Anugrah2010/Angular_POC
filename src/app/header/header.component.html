@@ -24,7 +24,7 @@
                     <button *ngIf="!isAuthenticated" mat-raised-button color="accent" class="example-margin" [routerLink]="['/auth']">Login</button>
                 </li>
                 <li>
-                    <button *ngIf="isAuthenticated" mat-raised-button color="primary" class="example-margin" [routerLink]="['/auth']">Logout</button>
+                    <button *ngIf="isAuthenticated" mat-raised-button color="primary" class="example-margin" (click)="logout()" [routerLink]="['/auth']">Logout</button>
                 </li>
         </ul>
         </div>
