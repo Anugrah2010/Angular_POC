@@ -7,17 +7,18 @@ import { SearchComponent } from './search/search.component';
 import { ProcureSearchComponent } from './search/procure-search/procure-search.component';
 import { RegisterSearchComponent } from './search/register-search/register-search.component';
 import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
   {path: '', component: AuthComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
   {path: 'search', component: SearchComponent,
     children: [
        {path: 'proSearch', component: ProcureSearchComponent, pathMatch: 'full'},
        {path: 'regSearch', component: RegisterSearchComponent, pathMatch: 'full'}
-      ]},
+      ], canActivate: [AuthGuard]},
   {path: 'auth', component: AuthComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
