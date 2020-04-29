@@ -5,7 +5,7 @@
         <div id="NavbarNav" class="collapse navbar-collapse">
             <ul  class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a *ngIf="isAuthenticated" class="nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+                    <a *ngIf="isAuthenticated" class="nav-link" [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a *ngIf="isAuthenticated"class="nav-link" [routerLink]="['/search']" routerLinkActive="active">Search</a>
@@ -17,9 +17,8 @@
                     <a *ngIf="isAuthenticated" class="nav-link">Find sellers</a>
                 </li>
                 <li class="nav-item">
-                    <a *ngIf="isAuthenticated" class="nav-link">Find buyers</a>
+                    <a *ngIf="isAuthenticated" class="nav-link" [routerLink]="['/findBuyers']" routerLinkActive="active">Find buyers</a>
                 </li>
-            
                 <li>
                     <button *ngIf="!isAuthenticated" mat-raised-button color="accent" class="example-margin" [routerLink]="['/auth']">Login</button>
                 </li>

@@ -48,6 +48,7 @@ import { RegisterSearchComponent } from './search/register-search/register-searc
 import { ProcureUpdateEntryModalComponent } from './search/procure-search/procure-update-entry-modal/procure-update-entry-modal.component';
 import { AuthComponent } from './auth/auth.component';
 import { HeaderComponent } from './header/header.component';
+import { FindBuyersComponent } from './find-buyers/find-buyers.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { HeaderComponent } from './header/header.component';
     ProcureUpdateEntryModalComponent,
     AuthComponent,
     HeaderComponent,
+    FindBuyersComponent,
   ],
   imports: [
     BrowserModule,
