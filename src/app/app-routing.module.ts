@@ -12,7 +12,7 @@ import { FindBuyersComponent } from './find-buyers/find-buyers.component';
 
 
 const routes: Routes = [
-  {path: '', component: AuthComponent},
+  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
   {path: 'search', component: SearchComponent,
