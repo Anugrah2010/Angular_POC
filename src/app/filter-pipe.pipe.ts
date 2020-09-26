@@ -12,6 +12,7 @@ export class FilterPipePipe implements PipeTransform {
     if (!searchText) { return items; }
     searchText = searchText.toLowerCase();
     return items.filter( it => {
+     // tslint:disable-next-line:max-line-length
      if (it.company.toLowerCase().includes(searchText) || it.country.toLowerCase().includes(searchText) || it.industry.toLowerCase().includes(searchText) || it.email.toLowerCase().includes(searchText) || it.contact.toLowerCase().includes(searchText)) {
         return it;
     }
