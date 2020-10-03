@@ -40,14 +40,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { FilterPipePipe } from './filter-pipe.pipe';
 import { SearchComponent } from './search/search.component';
 import { ProcureSearchComponent } from './search/procure-search/procure-search.component';
 import { RegisterSearchComponent } from './search/register-search/register-search.component';
 import { ProcureUpdateEntryModalComponent } from './search/procure-search/procure-update-entry-modal/procure-update-entry-modal.component';
 import { AuthComponent } from './auth/auth.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './/shared/components/header/header.component';
 import { FindBuyersComponent } from './find-buyers/find-buyers.component';
 import { GlobalRegisterComponent } from './global-register/global-register.component';
 

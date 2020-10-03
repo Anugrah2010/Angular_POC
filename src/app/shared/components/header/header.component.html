@@ -1,4 +1,4 @@
-<nav id="navBar" class="navbar navbar-expand-sm navbar-dark bg-dark mb-2">
+<!-- <nav id="navBar" class="navbar navbar-expand-sm navbar-dark bg-dark mb-2">
     <div class="container">
       <a href="#" class="navbar-brand">eMarket</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#NavbarNav"><span class="nav-toggler-icon"></span></button>
@@ -32,4 +32,43 @@
         </div>
       </div>
   </nav>
-  
+   -->
+    <mat-toolbar>
+     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <mat-icon>dialpad</mat-icon>
+          <span >Home</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/global']" routerLinkActive="active">
+          <mat-icon>voicemail</mat-icon>
+          <span >Global Register</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/search']" routerLinkActive="active">
+          <mat-icon>notifications_off</mat-icon>
+          <span >Search</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/register']" routerLinkActive="active">
+          <mat-icon>notifications_off</mat-icon>
+          <span >Registration</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Find sellers</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/findBuyers']" routerLinkActive="active">
+        <mat-icon>notifications_off</mat-icon>
+        <span>Find buyers</span>
+        </button>
+    </mat-menu>
+    <span>eMarket</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+     <mat-icon>share</mat-icon>
+   </button>
+  </mat-toolbar>

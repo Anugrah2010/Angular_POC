@@ -1,0 +1,11 @@
+:host {
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
+}
+mat-grid-tile button {
+    height: 80%;
+    width: 80%;
+    border: black 1px solid;
+    box-shadow: 5px 5px #888888;
+}

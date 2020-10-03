@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
 import { ProcureSearchComponent } from './search/procure-search/procure-search.component';
 import { RegisterSearchComponent } from './search/register-search/register-search.component';
@@ -13,16 +13,16 @@ import { GlobalRegisterComponent } from './global-register/global-register.compo
 
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
-  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
-  {path: 'global', component: GlobalRegisterComponent, canActivate: [AuthGuard]},
-  {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
+  {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'global', component: GlobalRegisterComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'search', component: SearchComponent,
     children: [
        {path: 'proSearch', component: ProcureSearchComponent, pathMatch: 'full'},
        {path: 'regSearch', component: RegisterSearchComponent, pathMatch: 'full'}
-      ], canActivate: [AuthGuard]},
-  {path: 'auth', component: AuthComponent},
+      ]},
+  //{path: 'auth', component: AuthComponent},
   {path: 'findBuyers', component: FindBuyersComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', redirectTo: '/not-found'}

@@ -12,9 +12,8 @@ import { MaterialFormModel } from '../shared/models/materialModel';
 export class HomeComponent implements OnInit {
   message = 'Welcome to Global eMarket';
   constructor() { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
+  ngOnInit(): void { }
 
 
 }
