@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
-import { MaterialFormModel } from 'src/app/home/materialModel';
+import { MaterialFormModel } from 'src/app/shared/models/materialModel';
 import { MatDialog } from '@angular/material/dialog';
 import { ProcureUpdateEntryModalComponent } from './procure-update-entry-modal/procure-update-entry-modal.component';
 

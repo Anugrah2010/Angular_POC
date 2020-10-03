@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { MaterialFormModel } from 'src/app/home/materialModel';
+import { MaterialFormModel } from 'src/app/shared/models/materialModel';
 
 @Component({
   selector: 'app-procure-update-entry-modal',

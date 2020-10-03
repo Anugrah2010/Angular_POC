@@ -10,5 +10,5 @@ export class MaterialFormModel {
   geography: string;
   logistics: string;
   express: boolean;
- 
+
 }

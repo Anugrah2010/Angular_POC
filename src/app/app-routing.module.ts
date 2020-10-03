@@ -9,11 +9,13 @@ import { RegisterSearchComponent } from './search/register-search/register-searc
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
 import { FindBuyersComponent } from './find-buyers/find-buyers.component';
+import { GlobalRegisterComponent } from './global-register/global-register.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'global', component: GlobalRegisterComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
   {path: 'search', component: SearchComponent,
     children: [

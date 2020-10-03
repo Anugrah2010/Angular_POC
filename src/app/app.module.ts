@@ -49,6 +49,7 @@ import { ProcureUpdateEntryModalComponent } from './search/procure-search/procur
 import { AuthComponent } from './auth/auth.component';
 import { HeaderComponent } from './header/header.component';
 import { FindBuyersComponent } from './find-buyers/find-buyers.component';
+import { GlobalRegisterComponent } from './global-register/global-register.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { FindBuyersComponent } from './find-buyers/find-buyers.component';
     AuthComponent,
     HeaderComponent,
     FindBuyersComponent,
+    GlobalRegisterComponent,
   ],
   imports: [
     BrowserModule,
