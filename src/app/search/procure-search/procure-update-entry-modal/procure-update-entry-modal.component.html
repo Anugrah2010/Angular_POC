@@ -45,13 +45,13 @@
                 <option>Five</option>
             </select>
         </mat-form-field>
-        <div class="example-full-width" >
+        <div class="full-width-container" >
         <mat-label>Payment Mode</mat-label>
         <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked"  (change)="isChecked()"></mat-slide-toggle>
         <span *ngIf="checked; else offline">Online</span>
         <ng-template #offline><span>Offline</span></ng-template>
         </div>  
-        <div class="example-full-width" >
+        <div class="full-width-container" >
             <mat-label class="example-margin">Logistics</mat-label>
             <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedEntry.logistics" name="logistics">
                 <mat-radio-button class="radio-element" value="required">Required</mat-radio-button>

@@ -50,6 +50,7 @@ import { AuthComponent } from './auth/auth.component';
 import { HeaderComponent } from './/shared/components/header/header.component';
 import { FindBuyersComponent } from './find-buyers/find-buyers.component';
 import { GlobalRegisterComponent } from './global-register/global-register.component';
+import { GlobalRegisterApiService } from './global-register/service/global-register-api.service';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,7 @@ import { GlobalRegisterComponent } from './global-register/global-register.compo
     MatCheckboxModule,
     FlexLayoutModule
     ],
-  providers: [],
+  providers: [GlobalRegisterApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

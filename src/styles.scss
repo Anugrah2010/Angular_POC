@@ -327,8 +327,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 100%;
 }
 
-.example-full-width {
+.full-width-container {
   width: 100%;
+}
+.full-height-container {
+  height: 100%;
 }
 .example-margin {
   margin: 10px;
@@ -371,4 +374,10 @@ color: darkblue;
 .spinner {
   top: 15em;
 }
-
+router-outlet + * {
+    background-image: url(./assets/farm.jpg);
+    background-size: 100% 100%;
+}
+.blank-card-height {
+  height: 640px;
+}

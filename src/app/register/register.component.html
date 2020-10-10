@@ -1,40 +1,50 @@
-<div>
-    <p class="h1 text-primary mb-9 clearfix float-sm-none text-center">Bootstrap 4 Seller Registration form</p>
-    <form [formGroup]="entryForm" (ngSubmit)="onSubmit()" class="form-group">
-        <label class="form-label" for="company">Company Name</label>
-        <input type="text" class="form-control mb-2"   formControlName="company"/>
-        <label class="form-label" for="country">Country</label>
-        <select class="form-control mb-2 dropdown" id="country" formControlName="country">
-            <option>----Select----- </option>
-            <option *ngFor="let country of countryArray">{{country.name}}</option>
-        </select>
-        <label class="form-label" for="industry">Industry</label>
-        <select class="form-control mb-2 dropdown" id="industry"  formControlName="industry">
-            <option>Pharmaceuticals</option>
-            <option>Electronics</option>
-            <option>Energy and Transmission</option>
-            <option>Chemical</option>
-            <option>Information Technology</option>
+<div fxFlex="1 1 100%" fxLayout="row" fxLayoutAlign="center center" class="full-height-container">
+    <div fxFlex="1 1 100%" fxLayout="column" fxLayoutAlign="center center">
+        <mat-card [ngStyle]="{width: '50%'}" class="blank-card-height">
+            <mat-form-field>
+                <mat-label>Company</mat-label>
+                <input type="text" matInput formControlName="company"/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Country</mat-label>
+                <mat-select formControlName="country">
+                    <mat-option>----Select----- </mat-option>
+                    <mat-option *ngFor="let country of countryArray" value="country.name">{{country.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Industry</mat-label>
+                <mat-select formControlName="industry">
+                    <mat-option value="Pharmaceuticals">Pharmaceuticals</mat-option>
+                    <mat-option value="Electronics">Electronics</mat-option>
+                    <mat-option value="Energy and Transmission">Energy and Transmission</mat-option>
+                    <mat-option value="Chemical">Chemical</mat-option>
+                    <mat-option value="Information Technology">Information Technology</mat-option>
 
-        </select>        
-        <label class="form-label" for="email" >email</label>
-        <input type="text" class="form-control mb-2"  formControlName="email" #emailInput/>
-        <label class="form-label" for="contact">Contact number</label>
-        <input type="text" class="form-control mb-2"   formControlName="contact" #contactInput/>
-        <button class="btn btn-outline-success" type="submit" [disabled]="!entryForm.valid">Submit</button>
-        <button class="btn btn-outline-dark ml-2" (click)="reset()">Reset</button>
-        <button class="btn btn-primary ml-2" (click)="redirectToSearch()" aria-label="Left Align">Redirect to Search<span class="glyphicon glyphicon-arrow-right"></span></button>
-    </form>
-    <!-- <div class="btn btn-secondary" (click)="getCountries()">Get Countries</div> -->
-    <div>
-        <input type="checkbox"/>
-        <p>Company :<span>{{entryForm.value.company}}</span></p>
-        <p>Country :<span>{{entryForm.value.country}}</span></p>
-        <p>Industry :<span>{{entryForm.value.industry}}</span></p>
-        <p>Email :<span>{{entryForm.value.email}}</span></p>
-        <p>Contact :<span>{{entryForm.value.contact}}</span></p>
+                </mat-select>        
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>eMail</mat-label>
+                <input matInput type="text" matInput formControlName="email"/>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Contact</mat-label>
+                <input matInput type="text" matInput formControlName="contact"/>
+            </mat-form-field>
+            <button class="btn btn-outline-success" type="submit" [disabled]="!entryForm.valid">Submit</button>
+            <button class="btn btn-outline-dark ml-2" (click)="reset()">Reset</button>
+            <button class="btn btn-primary ml-2" (click)="redirectToSearch()" aria-label="Left Align">Redirect to Search<span class="glyphicon glyphicon-arrow-right"></span></button>
+            <!-- <div>
+                <input type="checkbox"/>
+                <p>Company :<span>{{entryForm.value.company}}</span></p>
+                <p>Country :<span>{{entryForm.value.country}}</span></p>
+                <p>Industry :<span>{{entryForm.value.industry}}</span></p>
+                <p>Email :<span>{{entryForm.value.email}}</span></p>
+                <p>Contact :<span>{{entryForm.value.contact}}</span></p>
 
+            </div>
+            <p>Form Value: {{ entryForm.value | json }}</p> -->
+        </mat-card>
     </div>
-    <p>Form Value: {{ entryForm.value | json }}</p>
 </div>
 

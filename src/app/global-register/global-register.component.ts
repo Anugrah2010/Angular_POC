@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { MaterialFormModel } from '../shared/models/materialModel';
 import { Product } from '../shared/models/Product';
+import { GlobalRegisterApiService } from './service/global-register-api.service';
 
 
 @Component({
@@ -30,14 +31,12 @@ export class GlobalRegisterComponent implements OnInit {
   color;
   PPU = 1;
   today: number = Date.now();
-  getUrl = 'http://localhost:3000/get';
-  postUrl = 'http://localhost:3000/post';
   respData = 'click button to get data from server';
   postData ;
   successMsg: string;
   delayReset = 1000;
   barActive = false;
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(private formBuilder: FormBuilder, private readonly globalRegisterApiService: GlobalRegisterApiService) { }
 
  ngOnInit(): void {
    this.createProcureForm();
@@ -79,10 +78,12 @@ export class GlobalRegisterComponent implements OnInit {
  }
   postRequest(object: MaterialFormModel) {
 
-    return this.http.post(this.postUrl, object)
+    return this.globalRegisterApiService.register(object)
     .subscribe((response) => {
       this.postData = JSON.stringify(response);
       console.log('This is the post response ' + this.postData);
+    }, error => {
+      console.log(`register failed with ${error.error}`);
     });
   }
 }
