@@ -10,6 +10,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
 import { FindBuyersComponent } from './find-buyers/find-buyers.component';
 import { GlobalRegisterComponent } from './global-register/global-register.component';
+import { CommoditySearchComponent } from './commodity-search/commodity-search.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
       ]},
   //{path: 'auth', component: AuthComponent},
   {path: 'findBuyers', component: FindBuyersComponent},
+  {path: 'commoditySearch', component: CommoditySearchComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 

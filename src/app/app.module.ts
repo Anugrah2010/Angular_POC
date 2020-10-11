@@ -51,6 +51,7 @@ import { HeaderComponent } from './/shared/components/header/header.component';
 import { FindBuyersComponent } from './find-buyers/find-buyers.component';
 import { GlobalRegisterComponent } from './global-register/global-register.component';
 import { GlobalRegisterApiService } from './global-register/service/global-register-api.service';
+import { CommoditySearchComponent } from './commodity-search/commodity-search.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { GlobalRegisterApiService } from './global-register/service/global-regis
     HeaderComponent,
     FindBuyersComponent,
     GlobalRegisterComponent,
+    CommoditySearchComponent,
   ],
   imports: [
     BrowserModule,

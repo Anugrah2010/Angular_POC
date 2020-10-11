@@ -321,20 +321,11 @@ $udemyTraining-theme: mat-light-theme($udemyTraining-primary, $udemyTraining-acc
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
 .full-width-container {
   width: 100%;
 }
 .full-height-container {
   height: 100%;
-}
-.example-margin {
-  margin: 10px;
 }
 .form-element {
   padding: 5px 0px 25px 2px;
