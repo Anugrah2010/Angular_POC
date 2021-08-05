@@ -33,6 +33,7 @@
       </div>
   </nav>
    -->
+<ng-content></ng-content>
 <mat-toolbar color="primary">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
@@ -68,7 +69,7 @@
     </button>
   </mat-menu>
   <span>eMarket</span>
-  <div class="example-spacer">{{ headerScreenTitle | titlecase}}</div>
+  <div class="example-spacer">{{ headerScreenTitle | titlecase }}</div>
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
   </button>
