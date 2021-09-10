@@ -1,40 +1,39 @@
-<!-- <nav id="navBar" class="navbar navbar-expand-sm navbar-dark bg-dark mb-2">
+<nav id="navBar" class="navbar navbar-expand-sm navbar-dark bg-dark mb-2 justify-content-center">
     <div class="container">
-      <a href="#" class="navbar-brand">eMarket</a>
+      <a href="#" class="navbar-brand">Farmacist</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#NavbarNav"><span class="nav-toggler-icon"></span></button>
         <div id="NavbarNav" class="collapse navbar-collapse">
             <ul  class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a *ngIf="isAuthenticated" class="nav-link" [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+                    <a  class="nav-link" [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a *ngIf="isAuthenticated" class="nav-link" [routerLink]="['/global']" routerLinkActive="active">Global Register</a>
+                    <a  class="nav-link" [routerLink]="['/global']" routerLinkActive="active">Global Register</a>
                 </li>
                 <li class="nav-item">
-                    <a *ngIf="isAuthenticated"class="nav-link" [routerLink]="['/search']" routerLinkActive="active">Search</a>
+                    <a class="nav-link" [routerLink]="['/search']" routerLinkActive="active">Search</a>
                 </li>
                 <li class="nav-item">
-                    <a *ngIf="isAuthenticated" class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Registration</a>
+                    <a  class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a *ngIf="isAuthenticated" class="nav-link">Find sellers</a>
+                    <a  class="nav-link">Find sellers</a>
                 </li>
                 <li class="nav-item">
-                    <a *ngIf="isAuthenticated" class="nav-link" [routerLink]="['/findBuyers']" routerLinkActive="active">Find buyers</a>
+                    <a  class="nav-link" [routerLink]="['/findBuyers']" routerLinkActive="active">Find buyers</a>
                 </li>
                 <li>
                     <button *ngIf="!isAuthenticated" mat-raised-button color="accent" class="example-margin" [routerLink]="['/auth']">Login</button>
                 </li>
                 <li>
-                    <button *ngIf="isAuthenticated" mat-raised-button color="primary" class="example-margin" (click)="logout()" [routerLink]="['/auth']">Logout</button>
+                    <button  mat-raised-button color="primary" class="example-margin" (click)="logout()" [routerLink]="['/auth']">Logout</button>
                 </li>
         </ul>
         </div>
       </div>
   </nav>
-   -->
-<ng-content></ng-content>
-<mat-toolbar color="primary">
+  
+<!-- <mat-toolbar color="primary">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
@@ -76,4 +75,4 @@
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
   <mat-icon>share</mat-icon>
   </button>
-</mat-toolbar>
+</mat-toolbar> -->

@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "udemyTraining"
+  "defaultProject": "udemyTraining",
+  "cli": {
+    "analytics": "f2ff3301-d773-4f98-bafe-db8ef3b69dea"
+  }
 }
