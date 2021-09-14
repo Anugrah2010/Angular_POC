@@ -9,13 +9,13 @@ import { AuthService } from './auth/auth.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers:[HttpUrlEncodingCodec]
+  providers: [HttpUrlEncodingCodec],
 })
 export class AppComponent implements OnInit {
   url: string;
   message = new Promise((resolve, reject) => {
     setTimeout(() => resolve('Message received'), 1000),
-    setTimeout(() => reject('Message rejected'))});
+    setTimeout(() => reject('Message rejected'));});
   set = new Set();
   map = new Map();
   weakSet = new WeakSet();
@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
       observer.complete();
     }, 4000);
   });
+  loading = true;
 
   constructor(private authService: AuthService, private urlEncoder: HttpUrlEncodingCodec) {}
   ngOnInit() {
@@ -36,6 +37,9 @@ export class AppComponent implements OnInit {
     .finally(() => {
       console.log('India is great !');
   });
+    setTimeout(() => {
+    this.loading = false;
+  }, 5000);
   }
   async asyncfunction() {
     const delay = await this.message;
@@ -43,18 +47,18 @@ export class AppComponent implements OnInit {
   }
   // encodeUrl() {
   //   this.activatedRoute.url.subscribe((x: UrlSegment[]) => {
-  //     this.url = x.join('/'); 
+  //     this.url = x.join('/');
   //   });
   //   console.log(this.activatedRouteSnapshot.url);
   //   console.log(this.routerStateSnapshot.url);
   // }
   callWhenRequired() {
-    let firstObservable = interval(1000);
-    const secondObservable = firstObservable.pipe(debounce(() => 
+    const firstObservable = interval(1000);
+    const secondObservable = firstObservable.pipe(debounce(() =>
       interval(1000)));
-      secondObservable.subscribe(() => {
-        console.log('')
+    secondObservable.subscribe(() => {
+        console.log('');
       });
-      
+
   }
 }

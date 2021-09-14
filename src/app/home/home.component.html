@@ -1,8 +1,10 @@
-<div fxLayout="column" fxLayoutAlign="end">
-  <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile><button mat-raised-button class="primary">Nav 1</button></mat-grid-tile>
-    <mat-grid-tile><button mat-raised-button class="primary">Nav 2</button></mat-grid-tile>
-    <mat-grid-tile><button mat-raised-button class="primary">Nav 3</button></mat-grid-tile>
-    <mat-grid-tile><button mat-raised-button class="primary">Nav 4</button></mat-grid-tile>
-  </mat-grid-list>
+<div class="d-flex flex-row flex-fill justify-content-around flex-wrap">
+  <div *ngFor="item of [1,2,3,4] as items" class="card mt-2">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
 </div>

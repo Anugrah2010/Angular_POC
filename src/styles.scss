@@ -366,9 +366,10 @@ color: darkblue;
   top: 15em;
 }
 router-outlet + * {
-    background-image: url(./assets/farm.jpg);
-    background-size: 100% 100%;
+    flex: 1 1 1;
 }
+
+
 .blank-card-height {
   height: 640px;
 }
